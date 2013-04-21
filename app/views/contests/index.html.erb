@@ -1,0 +1,3 @@
+<% @contests.each do |c| %>
+  <%= link_to c.name, contest_path(c.id) %>
+<% end %><br>

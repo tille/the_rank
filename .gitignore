@@ -1,0 +1,7 @@
+/.bundle
+/db/*.sqlite3
+/log/*.log
+/tmp
+custom_plan.rb
+zeus.json
+.DS_Store
