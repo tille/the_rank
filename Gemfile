@@ -12,7 +12,8 @@ group :assets do
 end
 
 group :test, :development do
-  gem 'factory_girl_rails', '3.3.0'
+  gem 'factory_girl_rails', '4.0'
+  gem "factory_girl", "4.0"
   gem 'rspec-rails', '2.13.0'
   gem 'rspec-core', '2.13.1'
   gem 'zeus', '0.13.3'
@@ -20,4 +21,5 @@ end
 
 group :test do
   gem 'capybara', '2.1.0'
+  gem 'shoulda-matchers'
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :character do
-    name "Pablo Escobar"
+    sequence(:name){ |n| "memito#{n}" }
     category_id { FactoryGirl.create(:category).id }
   end
 end

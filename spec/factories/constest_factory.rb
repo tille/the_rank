@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :contest do
-    name "Fictional"
+    sequence(:name) { |n| "fulanito#{n}" }
   end
 end
