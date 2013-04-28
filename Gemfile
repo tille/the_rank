@@ -4,6 +4,7 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'rails', '3.2.13'
 gem 'awesome_print', '1.1.0'
+gem 'pry'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

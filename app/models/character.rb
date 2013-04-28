@@ -1,5 +1,5 @@
 class Character < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :category_id
   
   validates :name, presence: true, uniqueness: true
   

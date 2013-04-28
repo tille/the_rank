@@ -47,11 +47,11 @@ class CharactersController < ApplicationController
 
   def update
     @character = Character.find(params[:id])
-
+        
     respond_to do |format|
       if @character.update_attributes(params[:character])
         format.html { redirect_to @character, notice: 'Character was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render json: @character.to_json }
       else
         format.html { render action: "edit" }
         format.json { render json: @character.errors, status: :unprocessable_entity }
@@ -62,10 +62,6 @@ class CharactersController < ApplicationController
   def destroy
     @character = Character.find(params[:id])
     @character.destroy
-
-    respond_to do |format|
-      format.html { redirect_to characters_url }
-      format.json { head :no_content }
-    end
+    redirect_to characters_url
   end
 end
