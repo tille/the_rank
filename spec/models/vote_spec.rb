@@ -4,8 +4,7 @@ describe Vote do
   let(:vote) { FactoryGirl.create(:vote) }
   
   it "has a valid factory" do
-    FactoryGirl.create(:vote).should be_valid
-    vote.should be_valid
+    FactoryGirl.build(:vote).should be_valid
   end
   
   it "should be invalid without contest_id" do
@@ -17,12 +16,25 @@ describe Vote do
   end
 
   describe "validations" do
-    it { should validate_presence_of(:contest_id) }
-    it { should validate_presence_of(:character_id) }
+    [:contest_id, :battle_id, :character_id, :user_id, :ip].each do |attr_req|
+      it { should validate_presence_of(attr_req) }
+    end
+    
+    describe "invalid vote" do      
+      before{ vote.save }
+      it "with the same user_id in the same battle" do
+        FactoryGirl.build(:vote).should_not be_valid
+      end
+    end    
   end
   
   describe "relationships" do
     it { should belong_to(:contest) }
     it { should belong_to(:character) }
+    it do
+      pending "pending to create user model"
+      # should belong_to(:user) 
+    end
+    it { should belong_to(:battle) }
   end  
 end

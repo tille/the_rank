@@ -20,9 +20,12 @@ describe Category do
     it { should validate_presence_of(:name) }
     it { should validate_uniqueness_of(:name) }
     it { should validate_presence_of(:contest_id) }
+    it { should ensure_length_of(:name).is_at_most(15) }
+    it { should validate_presence_of(:contest_id) }
   end
   
   describe "relationships" do
     it { should have_many(:characters) }
+    it { should belong_to(:contest) }
   end  
 end

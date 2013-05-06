@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420202046) do
+ActiveRecord::Schema.define(:version => 20130506031129) do
+
+  create_table "battles", :force => true do |t|
+    t.integer  "contester1"
+    t.integer  "contester2"
+    t.integer  "votes_contester1", :default => 0
+    t.integer  "votes_contester2", :default => 0
+    t.integer  "total_votes",      :default => 0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "battles", ["contester1", "contester2"], :name => "index_battles_on_contester1_and_contester2"
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -38,6 +50,9 @@ ActiveRecord::Schema.define(:version => 20130420202046) do
     t.integer  "contest_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
+    t.integer  "battle_id"
+    t.string   "ip"
   end
 
 end

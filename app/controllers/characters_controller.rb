@@ -2,29 +2,14 @@ class CharactersController < ApplicationController
 
   def index
     @characters = Character.all
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @characters }
-    end
   end
 
   def show
     @character = Character.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @character }
-    end
   end
 
   def new
     @character = Character.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @character }
-    end
   end
 
   def edit
@@ -34,28 +19,20 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(params[:character])
 
-    respond_to do |format|
-      if @character.save
-        format.html { redirect_to @character, notice: 'Character was successfully created.' }
-        format.json { render json: @character, status: :created, location: @character }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
-      end
+    if @character.save
+      redirect_to @character, notice: 'Character was successfully created.'
+    else
+      render action: "new"
     end
   end
 
   def update
     @character = Character.find(params[:id])
         
-    respond_to do |format|
-      if @character.update_attributes(params[:character])
-        format.html { redirect_to @character, notice: 'Character was successfully updated.' }
-        format.json { render json: @character.to_json }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
-      end
+    if @character.update_attributes(params[:character])
+      redirect_to @character, notice: 'Character was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
