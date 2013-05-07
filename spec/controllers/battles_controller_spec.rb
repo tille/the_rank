@@ -11,8 +11,7 @@ describe BattlesController do
     it "assigns battles as @battles" do
       battle = FactoryGirl.create(:battle)
       get :index
-      # TODO: assigns is not working with zeus
-      Battle.all.should eq([battle])
+      assigns(:battles).should eq([battle])
     end    
   end
 end
