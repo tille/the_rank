@@ -1,0 +1,8 @@
+<% @battles.each do |battle| %>
+  contester1: <%= battle.contester1 %><br>
+  contester2: <%= battle.contester2 %><br>
+  contester1 votes: <%= battle.votes_contester1 %><br>
+  contester2 votes: <%= battle.votes_contester2 %><br>
+  total votes: <%= battle.total_votes %><br>
+  category: <%= Category.find(battle[:category_id]) %>  
+<% end %>

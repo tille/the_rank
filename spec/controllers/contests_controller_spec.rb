@@ -26,6 +26,7 @@ describe ContestsController do
       @category = FactoryGirl.create(:category, contest_id: contest.id)
       @character = FactoryGirl.create(:character, category_id: @category.id)
       @character2 = FactoryGirl.create(:character, category_id: @category.id)
+      @battle = FactoryGirl.create(:battle, contester1: @character.id, contester2: @character2.id, category_id: @category.id )
       get :show, { id: contest.id }
     end
 
@@ -46,6 +47,15 @@ describe ContestsController do
 
     it "have two diferent random characters c1, c2" do
       assigns(:c1).should_not eq(assigns(:c2))
+    end
+    
+    it "have a valid winner" do
+      assigns(:winner).should_not be_false
+    end
+    
+    it "have a valid battle" do
+      assigns(:battle).should_not be_false
+      assigns(:battle).should eq(@battle)
     end
     
     it "has a valid characters for show" do

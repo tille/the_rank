@@ -4,5 +4,5 @@ class Contest < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true, length: { maximum: 15 }
 
   has_one :category
-  has_many :votes
+  has_many :votes  
 end

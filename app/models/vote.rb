@@ -1,5 +1,5 @@
 class Vote < ActiveRecord::Base
-  attr_accessible :contest_id, :character_id
+  attr_accessible :contest_id, :character_id, :battle_id
   
   validate :uniqueness_of_user
   
