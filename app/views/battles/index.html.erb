@@ -1,2 +1,7 @@
-<h1>Battles#index</h1>
-<p>Find me in app/views/battles/index.html.erb</p>
+<h1>Battles</h1>
+
+<ul>
+  <% @battles.each do |b| %>
+    <li><%= "#{contester_name b.contester1} vs #{contester_name b.contester2}" %></li>
+  <% end %>
+</ul>

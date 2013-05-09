@@ -1,4 +1,10 @@
 <h1><%= @category.name %></h1>
 
-<%= @c1.name %><br>
-<%= @c2.name %>
+<%= @c1.name %> - votar
+<div> vs </div> 
+<%= @c2.name %> - votar <br><br>
+
+<div>
+  <%= link_to 'Next Battle', contest_path(@category.id) %> <br>
+  <%= link_to 'Check battles', battles_path %>
+</div>

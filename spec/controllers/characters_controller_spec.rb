@@ -77,7 +77,7 @@ describe CharactersController do
       assigns(:character).should be_persisted
     end
     
-    it "creates a new task" do
+    it "creates a new character" do
       expect {
         post :create, {:character => valid_attr_2}
       }.to change(Character, :count).by(1)

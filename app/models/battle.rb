@@ -6,7 +6,7 @@ class Battle < ActiveRecord::Base
   end
 
   has_many :votes
-  # belongs_to :character, :class_name => "Character", :foreign_key => "character_id"    
+  #belongs_to :character, :class_name => "Character", :foreign_key => "character_id"    
 
   def winner
     if self.votes_contester1 > self.votes_contester2
