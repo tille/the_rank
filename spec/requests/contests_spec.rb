@@ -35,7 +35,10 @@ describe "Contest page" do
   end
   
   it "assign one vote for the selected character" do
-    pending "Need to create the action :create in vote"
-    #click_link "votar"
+    expect {
+      all('.create_vote')[0].click
+    }.to change(Vote, :count).by(1)
+    
+    current_path.should == contest_path(@contest.id)
   end
 end

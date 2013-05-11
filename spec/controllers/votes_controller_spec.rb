@@ -19,7 +19,7 @@ describe VotesController do
     
     it "should redirect to @vote" do
       post :create, {:vote => valid_attr}
-      response.should redirect_to contests_path
+      response.should redirect_to contest_path(Vote.last.contest_id)
     end
       
     describe "with invalid params" do
