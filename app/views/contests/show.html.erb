@@ -1,23 +1,24 @@
 <h1><%= @category.name %></h1>
 
-<%= "#{@c1.name} - " %>
 <% valid_vote = { character_id: @c1.id, 
                   contest_id: @category.contest, 
                   battle_id: @battle.id, 
                   ip: "127.0.0.1", 
                   user_id: Random.rand(10...10*100) } %>
-                  
-<%= link_to "votar", votes_path( vote: valid_vote ), :method => 'post', class: "create_vote" %>
 
-<div> vs </div> 
+<b><%= @c1.name %></b> -                   
+<%= link_to "votar", votes_path( vote: valid_vote ), :method => 'post', class: "create_vote" %><br>
+Number of votes: <%= @battle.votes_contester1  %><br>
 
+<br><div> vs </div><br>
 <% valid_vote[:character_id] = @c2.id %>
 
-<%= "#{@c2.name} - " %>
-<%= link_to "votar", votes_path( vote: valid_vote ), :method => 'post', class: "create_vote" %>
+<b><%= @c2.name %></b> -                   
+<%= link_to "votar", votes_path( vote: valid_vote ), :method => 'post', class: "create_vote" %><br>
+Number of votes: <%= @battle.votes_contester2  %>
 
-<br><br>
-Actual Winner: <%= @battle.winner %>
+<br><br><br>
+<b>Actual Winner</b>: <%= @battle.winner %>
 <br><br>
 
 <div>
