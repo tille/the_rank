@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(params[:vote])
     if @vote.save
-      redirect_to contests_path
+      redirect_to contest_path(@vote.contest_id)
     else
       redirect_to root_path
     end

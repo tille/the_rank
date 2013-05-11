@@ -1,7 +1,7 @@
 class Vote < ActiveRecord::Base
   attr_accessible :contest_id, :character_id, :battle_id, :user_id, :ip
   
-  validate :uniqueness_of_user  
+  validate :uniqueness_of_user
   validates_presence_of :contest_id, :character_id, :battle_id, :user_id, :ip
     
   [:battle, :contest, :character].each do |belongs_attr|
