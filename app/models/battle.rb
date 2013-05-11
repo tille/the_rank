@@ -10,9 +10,9 @@ class Battle < ActiveRecord::Base
 
   def winner
     if self.votes_contester1 > self.votes_contester2
-      @c1.name
+      Character.find(self.contester1).name
     elsif self.votes_contester2 > self.votes_contester1
-      @c2.name
+      Character.find(self.contester2).name
     else
       "Draw"
     end

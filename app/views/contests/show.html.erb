@@ -17,6 +17,9 @@
 <%= link_to "votar", votes_path( vote: valid_vote ), :method => 'post', class: "create_vote" %>
 
 <br><br>
+Actual Winner: <%= @battle.winner %>
+<br><br>
+
 <div>
   <%= link_to 'Next Battle', contest_path(@category.id) %> <br>
   <%= link_to 'Check battles', battles_path %>

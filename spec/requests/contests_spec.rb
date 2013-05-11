@@ -14,7 +14,13 @@ describe "Contest page" do
   end
   
   it "should have two buttons for vote" do
-    should have_content "votar"
+    all('.create_vote').size.should == 2
+  end
+  
+  it "should have the text actual winner" do
+    should have_content "Actual Winner: #{@battle.winner}"
+    vote = FactoryGirl.create(:vote, battle_id: @battle.id, character_id: @character1.id)
+    should have_content "Actual Winner: #{@battle.winner}"    
   end
 
   it "should have next battle button" do

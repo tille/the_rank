@@ -1,10 +1,17 @@
 require 'spec_helper'
 
 describe Vote do
-  let(:vote) { FactoryGirl.create(:vote) }
+  before do 
+    @contest = FactoryGirl.create(:contest)
+    @category = FactoryGirl.create(:category, contest_id: @contest.id)
+    @character1 = FactoryGirl.create(:character, category_id: @category.id)
+    @character2 = FactoryGirl.create(:character, category_id: @category.id)
+    @battle = FactoryGirl.create(:battle, contester1: @character1.id, contester2: @character2.id, category_id: @category.id)
+    @vote = FactoryGirl.create(:vote, battle_id: @battle.id, character_id: @character1.id, contest_id: @contest.id)
+  end
   
   it "has a valid factory" do
-    FactoryGirl.build(:vote).should be_valid
+    FactoryGirl.build(:vote, user_id: 300 ).should be_valid
   end
   
   it "should be invalid without contest_id" do
@@ -21,11 +28,26 @@ describe Vote do
     end
     
     describe "invalid vote" do      
-      before{ vote.save }
       it "with the same user_id in the same battle" do
         FactoryGirl.build(:vote).should_not be_valid
       end
     end    
+  end
+  
+  describe "after save" do
+    it "should increment the total_votes" do      
+      lambda {
+        @battle.total_votes
+        @battle.reload
+       }.should change { @battle.total_votes }.by(1)
+    end
+
+    it "should increment the selected character votes" do      
+      lambda {
+        @battle.votes_contester1
+        @battle.reload
+       }.should change { @battle.votes_contester1 }.by(1)
+    end
   end
   
   describe "relationships" do
