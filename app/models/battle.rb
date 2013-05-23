@@ -6,6 +6,7 @@ class Battle < ActiveRecord::Base
   end
 
   has_many :votes
+  belongs_to :category
   #belongs_to :character, :class_name => "Character", :foreign_key => "character_id"    
 
   def winner

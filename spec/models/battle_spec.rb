@@ -31,5 +31,7 @@ describe Battle do
       # should belong_to(:character)
     end
     it ("have many votes") { should have_many(:votes) }
+    it ("belongs to") { should belong_to(:category) }
+
   end
 end

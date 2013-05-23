@@ -26,6 +26,7 @@ describe Category do
   
   describe "relationships" do
     it { should have_many(:characters) }
+    it { should have_many(:battles) }
     it { should belong_to(:contest) }
   end  
 end

@@ -5,5 +5,6 @@ class Category < ActiveRecord::Base
   validates :contest_id, presence: true
   
   has_many :characters
+  has_many :battles
   belongs_to :contest
 end
