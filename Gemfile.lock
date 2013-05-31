@@ -39,6 +39,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    cocaine (0.3.2)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -72,8 +73,14 @@ GEM
     mime-types (1.22)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
-    multi_json (1.7.2)
+    multi_json (1.7.4)
     nokogiri (1.5.9)
+    paperclip (3.0.4)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -86,6 +93,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    railroady (1.1.0)
     rails (3.2.13)
       actionmailer (= 3.2.13)
       actionpack (= 3.2.13)
@@ -150,16 +158,19 @@ PLATFORMS
 DEPENDENCIES
   awesome_print (= 1.1.0)
   capybara (= 2.1.0)
+  cocaine (= 0.3.2)
   coffee-rails (~> 3.2.1)
   factory_girl (= 4.0)
   factory_girl_rails (= 4.0)
   jquery-rails
+  paperclip (~> 3.0)
   pry
+  railroady (= 1.1.0)
   rails (= 3.2.13)
   rspec-core (= 2.13.1)
   rspec-rails (= 2.13.0)
   sass-rails (~> 3.2.3)
-  shoulda-matchers
+  shoulda-matchers (= 1.5.6)
   sqlite3
   uglifier (>= 1.0.3)
   zeus (= 0.13.3)

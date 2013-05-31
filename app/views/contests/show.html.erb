@@ -1,27 +1,30 @@
 <h1><%= @category.name %></h1>
 
-<% valid_vote = { character_id: @c1.id, 
-                  contest_id: @category.contest, 
-                  battle_id: @battle.id, 
-                  ip: "127.0.0.1", 
-                  user_id: Random.rand(10...10*100) } %>
+<% @valid_vote[:character_id] = @c1.id %>
 
-<b><%= @c1.name %></b> -                   
-<%= link_to "votar", votes_path( vote: valid_vote ), :method => 'post', class: "create_vote" %><br>
-Number of votes: <%= @battle.votes_contester1  %><br>
+<span class="characters-box">
+  <section class="character1-box">
+    <b><%= @c1.name %></b> -
+    <%= link_to "votar", votes_path( vote: @valid_vote ), :method => 'post', class: "create_vote" %><br>
+    <%= image_tag @c1.image.url(:medium) %><br>
+    Number of votes: <%= @battle.votes_contester1  %><br>
+  </section>
 
-<br><div> vs </div><br>
-<% valid_vote[:character_id] = @c2.id %>
+  <section class="vs-box"> vs </section>
 
-<b><%= @c2.name %></b> -                   
-<%= link_to "votar", votes_path( vote: valid_vote ), :method => 'post', class: "create_vote" %><br>
-Number of votes: <%= @battle.votes_contester2  %>
+  <% @valid_vote[:character_id] = @c2.id %>
 
-<br><br><br>
-<b>Actual Winner</b>: <%= @battle.winner %>
-<br><br>
+  <section class="character2-box">
+    <b><%= @c2.name %></b> -                   
+    <%= link_to "votar", votes_path( vote: @valid_vote ), :method => 'post', class: "create_vote" %><br>
+    <%= image_tag @c2.image.url(:medium) %><br>
+    Number of votes: <%= @battle.votes_contester2  %><br>
+  </section>
+</span>
 
-<div>
+<section class="actual-results-box">
+  <b>Actual Winner</b>: <%= @battle.winner %><br>l
+
   <%= link_to 'Next Battle', contest_path(@category.id) %> <br>
   <%= link_to 'Check battles', battles_path %>
-</div>
+</section>

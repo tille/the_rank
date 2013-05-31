@@ -1,0 +1,22 @@
+.characters-box {
+  .character1-box {
+    float: left; 
+    background-color: #ccc; 
+    height: auto;
+  }
+  
+  .vs-box {
+    float: left; margin-top: 150px;
+  }
+  
+  .character2-box {
+    float: left; 
+    background-color: #ccc;  
+    height: auto;
+  }
+}
+
+.actual-results-box {
+  clear: both;
+  padding-top: 20px;
+}

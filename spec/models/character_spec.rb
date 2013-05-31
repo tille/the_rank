@@ -12,6 +12,14 @@ describe Character do
     Contest.new.should have(1).error_on(:name)
   end
   
+  describe "image" do
+    it { should have_attached_file(:image) }
+    it do
+      pending "this issue should be fixed first https://github.com/thoughtbot/paperclip/issues/1194"
+      should validate_attachment_presence(:image)
+    end
+  end
+  
   describe "validations" do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:category_id) }
