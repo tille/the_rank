@@ -1,10 +1,10 @@
 TheRank::Application.routes.draw do
-  get "log_out" => "sessions#destroy", as: "log_out"
-  get "log_in" => "sessions#new", as: "log_in"
+  get "logout" => "sessions#destroy", as: "log_out"
+  get "login" => "sessions#new", as: "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   
-  resources :users, only: [ :new, :create ]
-  resources :sessions, only: [ :new, :create ]
+  resources :users, only: [ :create ]
+  resources :sessions, only: [ :create ]
 
   resources :characters
   resources :contests, only: [ :index, :show ]

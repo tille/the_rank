@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601002837) do
+ActiveRecord::Schema.define(:version => 20130602002949) do
 
   create_table "battles", :force => true do |t|
     t.integer  "contester1"
@@ -54,8 +54,9 @@ ActiveRecord::Schema.define(:version => 20130601002837) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
   end
 
   create_table "votes", :force => true do |t|

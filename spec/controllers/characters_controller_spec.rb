@@ -30,14 +30,14 @@ describe CharactersController do
   describe "new" do
     before{ get :new }
     
-    it "should be succes" do
+    it "should be success" do
       response.should be_success
     end
     
     it "should assign a new character as @character" do
       assigns(:character).should be_a_new(Character)
     end
-  end  
+  end
   
   describe "show" do
     # render_views
