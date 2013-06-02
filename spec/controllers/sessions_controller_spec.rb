@@ -12,7 +12,7 @@ describe SessionsController do
   
   describe "create" do
     before do
-      @user = FactoryGirl.create(:user, password: "tales" )
+      @user = FactoryGirl.create(:user)
       @email = "peranito@shakirita.com"
       @pwd = "tales"
     end
