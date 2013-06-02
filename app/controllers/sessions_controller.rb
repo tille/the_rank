@@ -1,5 +1,10 @@
 class SessionsController < ApplicationController
   def new
+    if current_user
+      params[:remember_me] = true
+      params[:email] = current_user.email
+      cookies.delete(:auth_token)
+    end
   end
 
   def create
