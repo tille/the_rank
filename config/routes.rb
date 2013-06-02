@@ -1,4 +1,5 @@
 TheRank::Application.routes.draw do
+
   get "logout" => "sessions#destroy", as: "log_out"
   get "login" => "sessions#new", as: "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
@@ -10,6 +11,7 @@ TheRank::Application.routes.draw do
   resources :contests, only: [ :index, :show ]
   resources :battles, only: [ :index ]
   resources :votes, only: [ :create ]
+  resources :password_resets, only: [ :new, :create, :edit, :update ]
   
   match '/welcome_email' => "mailer#welcome", via: "get"
   root :to => 'contests#index'
