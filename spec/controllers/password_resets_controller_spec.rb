@@ -8,5 +8,8 @@ describe PasswordResetsController do
       response.should be_success
     end
   end
-
+  
+  it do
+    pending "add some specs for this controller..."
+  end
 end
